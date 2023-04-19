@@ -1,0 +1,331 @@
+a{
+  text-decoration: none;
+  font-size: 15px;
+  cursor: pointer;
+  color: #333;
+
+
+}
+.container-layout {
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  height: 70px;
+  width: 100%;
+  box-shadow: 0px 0px 10px 0px #d3cece;
+  border-bottom: 1px solid #c6bdbd;
+  justify-content: space-between;
+  align-items: center;
+  font-family: 'Poppins', sans-serif;
+  background-color: #fff;
+  padding: 0 0px 0px 10%;
+}
+
+.container-layout .btnMenu {
+  display: none;
+  cursor: pointer;
+  
+}
+
+
+@media (width<750px) {
+  .container-layout p {
+    display: none;
+  }
+
+  .container-layout .btnMenu {
+    display: block;
+  }
+  .container-layout .btnMenu span {
+    font-size: 30px;
+  }
+}
+
+.container-layout div {
+  display: flex;
+}
+
+.container-layout span {
+  position: relative;
+  top: 4px;
+  left: 3px;
+  font-size: 20px;
+}
+
+
+.container-layout p {
+  margin: 0 2vw;
+  color: rgb(77, 82, 75);
+  font-size: 15px;
+  cursor: pointer;
+  font-weight: 600;
+
+}
+
+.container-layout p:hover {
+  color: rgb(16, 17, 16);
+  font-weight: 600;
+  transition: .3s;
+
+
+}
+
+.button3 {
+  background-color: transparent;
+  border: 0;
+}
+
+
+.container-layout .button2 {
+  margin: 0 1vw;
+  color: rgb(127, 130, 126);
+  font-family: sans-serif;
+  font-size: 15px;
+  cursor: pointer;
+  border: 0;
+  background-color: rgb(228, 231, 226);
+  border: 1px solid rgb(228, 231, 226);
+  padding: 12px 15px;
+  border-radius: 30px;
+}
+
+.container-layout .button1 {
+  margin: 0 1vw;
+  color: rgb(127, 130, 126);
+  font-family: sans-serif;
+  font-size: 15px;
+  cursor: pointer;
+  border: 0;
+  border: 1px solid rgb(228, 231, 226);
+  padding: 12px 15px;
+  font-weight: 600;
+  background-color: transparent;
+  border-radius: 20px;
+}
+
+.container-layout .button1:hover {
+  background-color: #fc3f38;
+  color: aliceblue;
+  border: 1px solid #fc3f38;
+  transition: .4s;
+
+}
+
+.container-layout .button2:hover {
+  background-color: #fc3f38;
+  color: aliceblue;
+  border: 1px solid #fc3f38;
+  transition: .4s;
+
+}
+
+#person {
+  height: 20px;
+
+  margin: 10px;
+  cursor: pointer;
+  font-size: 30px;
+  border-radius: 50%;
+  height: 40px;
+  width: 40px;
+  outline: none;
+
+
+}
+/* menu del phone funcionalidad */
+
+.menuPhone{
+  flex-direction: column;
+  position: fixed;
+  z-index: -1;
+  width:  100%;
+  height: 100vh;
+  bottom: -150%;
+  background-color: #fff;
+  transition: all 0.3s ease-in-out;
+left: 0;
+
+}
+.menuPhone  button{
+  position: relative;
+  left: 92%;
+  margin: 10px -10px;
+   font-size: 25px;
+   background-color: transparent;
+   border: 0;
+   color:  rgb(172, 175, 171);
+   border-radius: 100%;
+   height: 50px;
+   width: 50px;
+}
+
+.showPhone{
+  display: flex;
+  flex-direction: column;
+  bottom: 0;
+left: 0;
+  z-index: 9999;
+  position: fixed;
+  width:  100%;
+  height: 100%;
+  background-color: #fff;
+  transition: all 0.3s ease-in-out;
+}
+.showPhone button {
+  position: relative;
+  left: 92%;
+  margin: 10px -10px;
+  width: 20px;
+   font-size: 25px;
+   background-color: transparent;
+   border: 0;
+   color:  rgb(172, 175, 171);
+   border-radius: 100%;
+   height: 50px;
+   width: 50px;
+}
+.showPhone button:hover {
+
+  border-radius: 100%;
+  background-color: #eaeaeb;
+
+
+
+}
+.btnMenuPhone {
+ box-shadow: 1px 1px 6px 1px  rgb(172, 175, 171);
+}
+
+
+
+/* menu del usuario funcionalidad*/
+
+
+.menu nav {
+  position: fixed;
+  z-index: 9999;
+  right: -100%;
+  width: 50%;
+  height: 100vh;
+  top: 0;
+  background-color: #fff;
+  transition: all 0.4s ease-in-out;
+}
+
+.show nav {
+  top: 0;
+  z-index: 999999;
+  position: fixed;
+  right: 0;
+  width: 300px;
+  height: 100vh;
+  background-color: #fff;
+  transition: all 0.4s ease-in-out;
+}
+
+.show .postnav {
+  top: 0;
+  z-index: 9999;
+  position: fixed;
+  right: 0;
+  width: 100%;
+  height: 100vh;
+}
+
+.show .postnav {
+  transition: .4s;
+  background-color: rgba(0, 0, 0, 0.307);
+
+}
+
+/* datos del usuario en menu */
+
+.dateUser {
+  align-items: center;
+  margin: auto;
+  height: 100px;
+  border-bottom: 1px solid #f3f4f5;
+  box-shadow: 0px 0px 10px 0px #d3cece;
+
+}
+
+
+
+.dateUser h4 {
+  color: #727272;
+  font-size: 17px;
+  padding: 10px;
+
+
+}
+
+.dateUser h6 {
+  color: #9f9e9e;
+  font-size: 13px;
+  font-weight: 300;
+  text-align: center;
+  padding: 10px;
+
+}
+
+.dateUser div {
+  display: flex;
+  flex-direction: column;
+
+}
+
+.dateUser button {
+  color:  rgb(172, 175, 171);
+
+  height: 20px;
+  position: absolute;
+  right: 0;
+  margin: 10px;
+  cursor: pointer;
+  font-size: 19px;
+  border-radius: 100%;
+  height: 50px;
+  width: 50px;
+}
+
+.dateUser button:hover {
+  background-color: #eaeaeb;
+}
+
+/* link del menu de usuario */
+.actionUser {
+  height: 100%;
+  display: flex;
+}
+
+.actionUser ul {
+  margin: 10px 0;
+  width: 100%;
+}
+
+.actionUser ul li {
+  list-style: none;
+  text-align: start;
+  width: 100%;
+  cursor: pointer;
+  padding: 10px;
+  display: flex;
+
+}
+
+.actionUser ul li span {
+  margin: 0 10px;
+}
+
+.actionUser ul li:hover {
+  background-color: #eaeaeb;
+
+}
+
+.actionUser ul li a {
+  text-decoration: none;
+  margin-top: 1px;
+
+  color: #333;
+}
