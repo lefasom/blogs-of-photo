@@ -28,43 +28,43 @@ const imgRandom = [
 
 ]
 
-const user = [
-  {
-    user: 'leo',
-    favorite:['auto rojo','chica del gorro']
-  },
-  {
-    user: 'leo',
-    favorite:['auto rojo','chica del gorro']
-  },
-  {
-    user: 'leo',
-    favorite:['auto rojo','chica del gorro']
-  },
-  {
-    user: 'leo',
-    favorite:['auto rojo','chica del gorro']
-  },
-  {
-    user: 'leo',
-    favorite:['auto rojo','chica del gorro']
-  },
+// const user = [
+//   {
+//     user: 'leo',
+//     favorite:['auto rojo','chica del gorro']
+//   },
+//   {
+//     user: 'leo',
+//     favorite:['auto rojo','chica del gorro']
+//   },
+//   {
+//     user: 'leo',
+//     favorite:['auto rojo','chica del gorro']
+//   },
+//   {
+//     user: 'leo',
+//     favorite:['auto rojo','chica del gorro']
+//   },
+//   {
+//     user: 'leo',
+//     favorite:['auto rojo','chica del gorro']
+//   },
 
-]
-const favorito_foto = 0
-user.map((e)=>{
-  if(e.favorite== id){
-    favorito_foto ++
-  }
-})
+// ]
+// const favorito_foto = 0
+// user.map((e)=>{
+//   if(e.favorite== id){
+//     favorito_foto ++
+//   }
+// })
 export const blogAnime = [
-  {
-    id: '26',
-    url: 'https://images6.alphacoders.com/114/thumbbig-1141689.webp',
-    description: 'fff',
-    email: 'klslskls',
-    likes: 0
-  },
+  // {
+  //   id: '26',
+  //   url: 'https://images6.alphacoders.com/114/thumbbig-1141689.webp',
+  //   description: 'fff',
+  //   email: 'klslskls',
+  //   likes: 0
+  // },
   {
     id: '27',
     url: 'https://images5.alphacoders.com/112/thumbbig-1123078.webp',
