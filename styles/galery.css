@@ -1,7 +1,6 @@
-.container {
-    background-color: #333;
-    columns: 4 220px;
-    margin-top: 70px;
+.container-galery {
+    columns: 4;
+    margin-top: 100px;
     padding: 10px;
     column-gap: 2px;
 
@@ -15,40 +14,105 @@
 
 
 
-img {
-width:220px;
-height: 70vh;
-    object-fit: cover;
+.container-galery .container-img img {
+    width: 22vw;
+    object-fit: contain;
     display: block;
     outline: 1px solid #fff;
     outline-offset: -.5rem;
+    box-shadow: 1px 1px 17px 1px #333;
 }
 
-.container-img a {
-color: #eddddd;
+.container-galery .container-img span {
+    color: red;
 }
+.container-galery .container-img video {
+    width: 22vw;
+    object-fit: cover;
+    outline: 1px solid #fff;
+    display: block;
+    outline-offset: -.5rem;
+    box-shadow: 1px 1px 17px 1px #333;
+    position: relative;
+    z-index: -1;
+}
+
 @media (width<750px) {
-    .container {
-        background-color: #333;
-        columns: 80vw;
-        margin-top: 70px;
-        padding: 10px;
-        column-gap: 2px;
-    
-    }
-    .container-img {
+    .container-galery {
         display: flex;
         justify-content: center;
-        height: 100vh;
-        margin-bottom: 20px;
+        flex-direction: column;
     }
-    
-    img {
-        width: 80vw;
-        height: 90vh;
-            object-fit: cover;
-            display: block;
-            outline: 1px solid #eddddd;
-            outline-offset: -1rem;
-        }
-  }
+
+    .container-galery .container-img img {
+        width: 90vw;
+        object-fit: cover;
+        display: block;
+        outline: 1px solid #fff;
+        outline-offset: -.5rem;
+    }
+    .container-galery .container-img video {
+        width: 90vw;
+        object-fit: cover;
+        display: block;
+        outline: 1px solid #fff;
+        outline-offset: -.5rem;
+    }
+
+
+}
+
+.paginacion {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    font-size: 19px;
+    font-family: poppins;
+}
+
+.paginacion-botonera {
+    display: flex;
+
+
+
+}
+
+.paginacion-botonera button {
+    background-color: transparent;
+    margin: 10px;
+    border: 1px solid #333;
+    font-size: 19px;
+    font-family: poppins;
+    width: 60px;
+    height: 50px;
+    cursor: pointer;
+
+}
+.paginacion-botonera button:focus {
+    outline: 1px solid rgba(32, 31, 30, 0.668);
+
+
+}
+.paginacion-botonera input {
+    background-color: transparent;
+    margin: 10px;
+    width: 60px;
+    height: 50px;
+    border: 1px solid #333;
+    font-size: 19px;
+    font-family: poppins;
+    text-align: center;
+    outline: none;
+
+}
+.paginacion-botonera p {
+    background-color: transparent;
+    margin: 10px 0;
+   
+    padding: 10px 0;
+    font-size: 19px;
+    font-family: poppins;
+    text-align: center;
+    outline: none;
+
+}

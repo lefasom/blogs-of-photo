@@ -1,0 +1,93 @@
+.container-collection {
+    background-color: #f6f6f6;
+    columns: 4;
+    margin-top: 100px;
+    column-gap: 2px;
+     position: absolute;
+     z-index: -1;
+left: 0;
+right: 0;
+    }
+
+
+.container-collection  .container-img{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
+}
+
+.container-collection  .container-img img {
+width: 21vw;
+    object-fit: contain;
+    outline: 1px solid #fff;
+    outline-offset: -.5rem;
+box-shadow: 1px 1px 17px 1px #333;
+}
+
+
+.container-collection  .container-img button {
+    display: flex;
+    position: relative;
+  left: -29px;
+    border: 0;
+    color: #595353;
+    font-size: 20px;
+    cursor: pointer;
+    background-color: rgba(245, 248, 248, 0.571);
+    height: 30px;
+    width: 30px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 100%;
+
+}
+    .container-collection  .container-img button:hover {
+        background-color: red;
+        color: #fcfcfc;
+    }
+    
+@media (width<750px) {
+
+    .container-collection {
+        position: absolute;
+        z-index: -1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        left: 10vw;
+       }
+       .container-img{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+       }
+       .container-collection  .container-img img{ 
+        margin: auto;
+           width: 80vw;
+           object-fit: cover;
+           display: block;
+           outline: 1px solid #fff;
+           outline-offset: -.5rem;
+       }
+       .container-collection  .container-img button {
+        display: flex;
+        position: relative;
+      left: -80px;
+        border: 0;
+        color: #595353;
+        font-size: 20px;
+        cursor: pointer;
+        background-color: rgba(245, 248, 248, 0.571);
+        height: 70px;
+        width: 70px;
+        align-items: center;
+        justify-content: center;
+        border-radius: 100%;
+    
+    }
+        .container-collection  .container-img button:hover {
+            background-color: red;
+            color: #fcfcfc;
+        }
+  }

@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import '../styles/layout.css'
-import { useDispatch, useSelector } from 'react-redux'
-import { stateUser } from '../redux/sessionSlice'
+
 import { useAuth0 } from '@auth0/auth0-react';
 import { Link, Outlet, useNavigate } from 'react-router-dom';
 
@@ -11,7 +10,7 @@ function Layout() {
     const [stateMenuPhone, setStateMenuPhone] = useState(false)
     const [stateMenu, setStateMenu] = useState(true)
     const navigate = useNavigate()
-    // console.log(user)
+    console.log(user)
     return (<>
 
         <div className='container-layout'>

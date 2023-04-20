@@ -13,18 +13,20 @@ a{
   display: flex;
   height: 70px;
   width: 100%;
-  box-shadow: 0px 0px 10px 0px #d3cece;
-  border-bottom: 1px solid #c6bdbd;
+  box-shadow: 1px 1px 17px 1px #333;
+
   justify-content: space-between;
   align-items: center;
   font-family: 'Poppins', sans-serif;
-  background-color: #fff;
+  background-color: #ffffff;
   padding: 0 0px 0px 10%;
 }
 
 .container-layout .btnMenu {
   display: none;
   cursor: pointer;
+  position: relative;
+right: 5vw;
   
 }
 
@@ -56,20 +58,12 @@ a{
 
 .container-layout p {
   margin: 0 2vw;
-  color: rgb(77, 82, 75);
-  font-size: 15px;
+ 
   cursor: pointer;
-  font-weight: 600;
 
 }
 
-.container-layout p:hover {
-  color: rgb(16, 17, 16);
-  font-weight: 600;
-  transition: .3s;
 
-
-}
 
 .button3 {
   background-color: transparent;
@@ -130,7 +124,8 @@ a{
   height: 40px;
   width: 40px;
   outline: none;
-
+position: relative;
+right: -30vw;
 
 }
 /* menu del phone funcionalidad */
@@ -253,9 +248,11 @@ left: 0;
 
 
 .dateUser h4 {
-  color: #727272;
+  color: #333;
+
   font-size: 17px;
   padding: 10px;
+  font-weight: 400;
 
 
 }

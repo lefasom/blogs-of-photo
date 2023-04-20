@@ -5,26 +5,22 @@ const collectionName = "crudImg"
 
 export const personSlice = createSlice({
     name: 'person',
-    initialState:{list:[]},
+    initialState: { list: [] },
     reducers: {
         currentPerson: (state, action) => {
             state.list = action.payload
         },
-        addPerson: (state, action) => {
-            const { description , photo, idUser} = action.payload
-            addDoc(collection(db, collectionName), {description,photo,idUser})
-        },
+   
         deletePerson: (state, action) => {
             const id = action.payload
+            const listNew =  state.list.filter((e)=>{return(e.id != action.payload)})
+            state.list = listNew
             deleteDoc(doc(db, collectionName, id))
         },
-        updatePerson: (state, action) => {
-            const { photo, name, id } = action.payload
-            setDoc(doc(db, collectionName, id), { photo, name })
-        },
+  
     }
 })
-   
+
 
 export const {
     currentPerson,
