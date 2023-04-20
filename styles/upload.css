@@ -1,26 +1,33 @@
-
-.container-upload_description-A{
- display: flex;
- font-size: 13px;
- padding: 0 10px;
-}
-.container-upload_description-B{
+.container-upload {
     display: flex;
-justify-content: space-between;
-margin: 0 10px;
-margin-right: 10%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
 }
-.container-upload_description h1{
-    display: flex;
-    font-size: 22px;
+.container-upload textarea {
+    width: 500px;
+    height: 10vh;
+    font-size: 19px;
+    font-family: poppins;
 }
-.container-upload_description p{
-    margin-left: 5px;
-    color: rgb(109, 107, 107);
+.container-upload img {
+    height: 100px;
+    margin :0  20px;
 
 }
-.container-upload_description h3{
-    color: rgb(30, 81, 164);
-    margin-right: 5px;
-    font-weight: 400;
+.container-upload video {
+    height: 100px;
+    margin :0  20px;
+
+}
+.container-upload p {
+    margin :0  20px;
+}
+.img, .category, .description, .upload {
+    margin: 20px;
+}
+.container-upload .img {
+    display: flex;
+    height: 100px;
 }

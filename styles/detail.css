@@ -10,7 +10,8 @@
 }
 
 .container-detail_background {
-
+display: flex;
+flex-direction: column;
     background: rgb(2, 0, 36);
     background: linear-gradient(90deg, rgba(146, 141, 234, 0.062) 37%, rgba(242, 238, 242, 0.04899777282850781) 100%);
 }
@@ -22,9 +23,23 @@
     outline: 0;
     width: 60vw;
     height: auto;
-    border-radius: 10px;
+    outline: 1px solid rgb(253, 251, 251);
+    outline-offset: -1rem;
+    box-shadow: 1px 1px 10px 1px #333;    
 }
+@media (width<750px){
+    .container-detail_background img {
+        margin: auto;
+        margin-top: 100px;
+        object-fit: contain;
+        outline: 0;
+        width: 70vw;
 
+        outline: 1px solid rgb(253, 251, 251);
+        outline-offset: -1rem;
+        box-shadow: 1px 1px 10px 1px #333;    
+    }
+}
 .container-detail_controls {
     display: flex;
     justify-content: center;

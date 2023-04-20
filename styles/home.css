@@ -1,0 +1,10 @@
+select {
+    padding: 5px 10px;
+    font-family: 'poppins';
+    font-size: 19px;
+    margin: 0 15px;
+}
+.container-home {
+    display: flex;
+    justify-content: center;
+}
