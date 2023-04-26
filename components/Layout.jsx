@@ -10,7 +10,6 @@ function Layout() {
     const [stateMenuPhone, setStateMenuPhone] = useState(false)
     const [stateMenu, setStateMenu] = useState(true)
     const navigate = useNavigate()
-    console.log(user)
     return (<>
 
         <div className='container-layout'>
@@ -46,7 +45,8 @@ function Layout() {
                     home
                 </span>
             </p>
-            {isAuthenticated ?
+
+            {user?
                 <>
                     <button className='button3' onClick={() => setStateMenu(!stateMenu)}>
                         <img src={user.picture} alt="" id="person" />

@@ -8,3 +8,6 @@ select {
     display: flex;
     justify-content: center;
 }
+.flex{
+    display: flex;
+}

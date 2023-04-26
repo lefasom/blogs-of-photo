@@ -1,15 +1,19 @@
 import React, { useEffect, useState } from 'react'
-import { useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
-import { addPerson } from '../redux/personSlice'
-import { uploadFile } from '../firebase/firebase'
-import { useAuth0 } from '@auth0/auth0-react'
+import { addImages, currentImages } from '../redux/imagesSlice'
+import { db, uploadFile } from '../firebase/firebase'
+import { useAuth0, withAuthenticationRequired } from '@auth0/auth0-react'
 
 import '../styles/upload.css'
 import InfoFIle from '../components/InfoFIle'
+import { collection, getDocs } from '@firebase/firestore'
 
 function Upload() {
-  const person = useSelector((state) => state.person.list)
+
+  const dispatch = useDispatch()
+  const images = useSelector((state) => state.images.list)
+
+  const [photo, setPhoto] = useState('')
   const [description, setDescription] = useState('')
   const [category, setCategory] = useState('all')
   const [subCategory, setSubcategory] = useState('all')
@@ -17,39 +21,44 @@ function Upload() {
   const [type, setType] = useState('photo')
   const [typeINTERNA, setTypeINTERNA] = useState('all')
 
-console.log(typeINTERNA)
+  const [length, setLength] = useState(0)// se lo paso a infoFile para saber la cantidad de elementos actuales de upload
 
-  const [length, setLength] = useState(0)
-
-  const [load, setLoad] = useState(false)
-  const [photo, setPhoto] = useState('')
+  const { user } = useAuth0()
   const [idUser, setIdUser] = useState('')
   const [nickname, setNickname] = useState('')
 
-  const { isAuthenticated, user } = useAuth0()
-  const navigate = useNavigate()
-  const dispatch = useDispatch()
 
   const cargarPhoto = async (e) => {
     const result = await uploadFile(e)
     setPhoto(result)
-    setLoad(true)
   }
 
-  const handleSubmit = async () => {
-    dispatch(addPerson({ type, color, subCategory, category, description, photo, idUser }))
-    navigate('/')
+  const handleSubmit = () => {
+    dispatch(addImages({ type, color, subCategory, category, description, photo, idUser }))
+    setDescription('')
+    setCategory('all')
+    setSubcategory('all')
+    setColor('all')
+    setType('photo')
+    setPhoto('')
   }
 
   useEffect(() => {
-    if (!isAuthenticated) {
-      navigate('/')
-    } else if (isAuthenticated) {
-      setIdUser(user.email)
-      setNickname(user.nickname)
-      setLength((person.filter((e => { return (e.idUser == user.email) })).length))
+
+    const getLinks = async () => {
+      const querySnapshot = await getDocs(collection(db, 'crudImg'));
+      const docs = [];
+      querySnapshot.forEach((doc) => {
+        docs.push({ ...doc.data(), id: doc.id })
+      });
+      dispatch(currentImages(docs));
     }
-  }, [isAuthenticated])
+
+    getLinks()
+    setIdUser(user.email)
+    setNickname(user.nickname)
+    setLength((images.filter((e => { return (e.idUser == user.email) })).length))
+  }, [handleSubmit])
 
   return (
     <div>
@@ -58,30 +67,30 @@ console.log(typeINTERNA)
       <br />
       <br />
       <InfoFIle nickname={nickname} title={'Upload'} length={length} />
-
       <div className="container-upload">
         <div className='img'>
 
-          {typeINTERNA.includes('video')?
+          {typeINTERNA.includes('video') ?
             <video controls src={photo} alt="" />
             :
             <img src={photo} alt="" />
           }
-          {!load &&
-            <p>EMPTY...</p>
+          {photo == '' && <p>empty</p>
+
           }
-          <input type="file" name="" id="" onChange={(e) => { cargarPhoto(e.target.files[0]) 
-          setTypeINTERNA(e.target.files[0].type)
+          <input type="file" onChange={(e) => {
+            cargarPhoto(e.target.files[0])
+            setTypeINTERNA(e.target.files[0].type)
           }} />
         </div>
         <div className='category'>
           <h4>Category</h4>
-          <select onChange={(e) => setType(e.target.value)}>
+          <select value={type} onChange={(e) => setType(e.target.value)}>
             <option value="photo">Photo</option>
             <option value="video">Video</option>
             <option value="audio">Audio</option>
           </select>
-          <select onChange={(e) => setCategory(e.target.value)}>
+          <select value={category} onChange={(e) => setCategory(e.target.value)}>
             <option value="all">Category</option>
             <option value="sport">Sport</option>
             <option value="art">Art</option>
@@ -89,7 +98,7 @@ console.log(typeINTERNA)
             <option value="vehicle">Vehicle</option>
             <option value="nature">Nature</option>
           </select>
-          <select onChange={(e) => setSubcategory(e.target.value)}>
+          <select value={subCategory} onChange={(e) => setSubcategory(e.target.value)}>
             <option value="all">Sub category</option>
             {category == 'art' && <>
               <option value="music">Music</option>
@@ -123,7 +132,7 @@ console.log(typeINTERNA)
               <option value="plane">plane</option>
             </>}
           </select>
-          <select onChange={(e) => setColor(e.target.value)}>
+          <select value={color} onChange={(e) => setColor(e.target.value)}>
             <option value="all">Color</option>
             <option value="redf">Red</option>
             <option value="blue">Blue</option>
@@ -137,7 +146,7 @@ console.log(typeINTERNA)
         </div>
         <div className='description'>
           <h4>Description</h4>
-          <textarea onChange={(e) => setDescription(e.target.value)} setloading />
+          <textarea value={description} onChange={(e) => setDescription(e.target.value)}  />
         </div>
         <div className='upload'>
           {(!photo == '') &&
@@ -151,5 +160,5 @@ console.log(typeINTERNA)
   )
 }
 
-export default Upload
+export default withAuthenticationRequired(Upload)
 

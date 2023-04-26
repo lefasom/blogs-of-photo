@@ -1,15 +1,8 @@
-import { useAuth0 } from '@auth0/auth0-react'
-import React, { useEffect } from 'react'
-import { useNavigate } from 'react-router-dom'
+import React from 'react'
+import { useAuth0, withAuthenticationRequired } from '@auth0/auth0-react'
 
 function Setting() {
-    const { isAuthenticated, user } = useAuth0()
-    const navigate = useNavigate()
-    useEffect(() => {
-        if (!isAuthenticated) {
-            navigate('/')
-        }
-    }, [isAuthenticated])
+    const { user } = useAuth0()
 
     return (
         <div>
@@ -19,7 +12,7 @@ function Setting() {
             <br />
             <div className='container-upload_description'>
                 <div className='container-upload_description-A'>
-                    <h3> {user.nickname}</h3>
+                    <h3> {user?.nickname}</h3>
                     {'>'}
                     <p>Setting </p>
                 </div>
@@ -28,4 +21,4 @@ function Setting() {
     )
 }
 
-export default Setting
+export default withAuthenticationRequired(Setting)
