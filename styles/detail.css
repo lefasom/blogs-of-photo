@@ -40,7 +40,7 @@ flex-direction: column;
         box-shadow: 1px 1px 10px 1px #333;    
     }
 }
-.container-detail_controls {
+.container-detail_controls,.container-detail_controls-red {
     display: flex;
     justify-content: center;
 }
@@ -52,7 +52,14 @@ flex-direction: column;
     cursor: pointer;
     padding: 10px;
 }
-
+.container-detail_controls-red span {
+    border-radius: 100%;
+    margin: 10px;
+    font-size: 30px;
+    cursor: pointer;
+    padding: 10px;
+    color:red;
+}
 .container-detail_controls span:hover {
     background-color: #0200240d;
 }

@@ -1,18 +1,18 @@
 import { configureStore } from "@reduxjs/toolkit";
 import imagesSlice from "./imagesSlice";
-import userSlice from "./userSlice";
+import usersSlice from "./usersSlice";
 import authSlice from "./authSlice";
 
 const store = configureStore({
   reducer: {
     images: imagesSlice,
-    user: userSlice,
+    users: usersSlice,
     auth: authSlice
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
       thunk: {
-        extraArgument: userSlice,
+        extraArgument: usersSlice,
       },
       serializableCheck: false,
     }),

@@ -11,3 +11,17 @@ select {
 .flex{
     display: flex;
 }
+
+@media (width<750px) {
+    .container-home {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+    }
+    select {
+        padding: 5px 10px;
+        font-family: 'poppins';
+        font-size: 19px;
+        margin:10px;
+    }
+  }

@@ -16,8 +16,9 @@ const Router = () => {
             <Route path="/Collection" element={<Collection />}></Route>
             <Route path="/Detail/:id" element={<Detail />}></Route>
             <Route path="/Upload" element={<Upload />}></Route>
-            <Route path="/Setting" element={<Setting />}></Route>
+            {/* <Route path="/Setting" element={<Setting />}></Route> */}
             <Route path="/Favorite" element={<Favorite />}></Route>
+
           </Route>
         </Routes>
       </BrowserRouter>

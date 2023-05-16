@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import '../styles/galery.css'
 import Spiral from './Spiral'
+import { useSelector } from 'react-redux'
 
 function Galery({ imgs, category, subCategory, color, type }) {
 
@@ -9,7 +10,8 @@ function Galery({ imgs, category, subCategory, color, type }) {
   const [inf, setInf] = useState(0)
   const [sup, setSup] = useState(20)
   const [pagina, setPagina] = useState(0)
-
+//   const fav = useSelector((state) => state.auth.list.favorite)
+// console.log(fav)
 
   if (category == 'all' && color == 'all') {
     IMG_FILTER_CATEGORY = imgs
@@ -49,15 +51,18 @@ function Galery({ imgs, category, subCategory, color, type }) {
 
             </div>
           )
-        } else {
+        } else {   
+          
+        
           return (
             <div key={val.id} className='container-img'>
               <Link to={`/Detail/${val.id}`}>
                 <img className={val.id % 2 ? 'img' : 'img2'} src={val.photo} alt="" />
               </Link>
-
             </div>
+
           )
+
         }
       }
 

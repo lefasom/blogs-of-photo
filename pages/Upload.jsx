@@ -134,7 +134,7 @@ function Upload() {
           </select>
           <select value={color} onChange={(e) => setColor(e.target.value)}>
             <option value="all">Color</option>
-            <option value="redf">Red</option>
+            <option value="red">Red</option>
             <option value="blue">Blue</option>
             <option value="yellow">Yellow</option>
             <option value="green">Green</option>

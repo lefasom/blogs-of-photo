@@ -15,6 +15,7 @@
     height: 100px;
     margin :0  20px;
 
+
 }
 .container-upload video {
     height: 100px;
@@ -29,5 +30,19 @@
 }
 .container-upload .img {
     display: flex;
-    height: 100px;
+    height: 150px;
+    flex-direction: column;
+}
+.container-upload .img input{
+    padding: 20px;
+
+}
+
+@media (width<750px) {
+    .container-upload textarea {
+        width:  90%;
+        height: 10vh;
+        font-size: 19px;
+        font-family: poppins;
+    }
 }

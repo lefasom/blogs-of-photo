@@ -103,7 +103,7 @@ function Layout() {
                                     </span>
                                     Collection
                                 </li>
-                                <li onClick={() => {
+                                {/* <li onClick={() => {
                                     setStateMenu(!stateMenu)
                                     navigate('/Setting')
                                 }} >
@@ -111,7 +111,7 @@ function Layout() {
                                         settings
                                     </span>
                                     Setting
-                                </li>
+                                </li> */}
                                 <li onClick={() => {
                                     auth0Logout({ returnTo: window.location.origin })
                                     setStateMenu(!stateMenu)

@@ -1,13 +1,10 @@
 import React, { useEffect, useState } from 'react'
-import { db } from '../firebase/firebase.js'
-import { collection, getDocs } from "firebase/firestore"
 import { useDispatch, useSelector } from 'react-redux'
-import { currentImages } from '../redux/imagesSlice.js'
 import Galery from '../components/Galery.jsx'
 import '../styles/home.css'
-import { useAuth0 } from '@auth0/auth0-react'
-import { addUser, currentUser } from '../redux/userSlice.js'
-import { currentAuth } from '../redux/authSlice.js'
+import { getImages } from '../redux/imagesAction.js'
+import { getUsers } from '../redux/usersActions.js'
+import useFetch from '../hooks/useFetch.js'
 
 
 function Home() {
@@ -19,59 +16,14 @@ function Home() {
     const [subCategory, setSubcategory] = useState('all')
     const [color, setColor] = useState('all')
 
-    const { user, isAuthenticated } = useAuth0()
     let imagesRedux = useSelector((state) => state.images.list)
-    if (imagesRedux) {
-        localStorage.setItem('imagesRedux', imagesRedux)
-    } else {
-        imagesRedux = localStorage.getItem('imagesRedux')
-    }
-    let userRedux = useSelector((state) => state.user.list)
-    if (userRedux) {
-        localStorage.setItem('userRedux', userRedux)
-    } else {
-        userRedux = localStorage.getItem('userRedux')
-    }
-console.log(imagesRedux)
+
+    useFetch()
 
     useEffect(() => {
-        const getImages = async () => {
-            const querySnapshot = await getDocs(collection(db, 'crudImg'));
-            const docs = [];
-            querySnapshot.forEach((doc) => {
-                docs.push({ ...doc.data(), id: doc.id })
-            });
-            dispatch(currentImages(docs));
-        }
-        getImages()
-
-        const getUser = async () => {
-            const querySnapshot = await getDocs(collection(db, 'crudUser'));
-            const docs = [];
-            querySnapshot.forEach((doc) => {
-                docs.push({ ...doc.data(), id: doc.id })
-            });
-            dispatch(currentUser(docs));
-
-        }
-        getUser()
-
-        const setUsers = () => {
-            try {
-                const email = user?.email
-                dispatch(addUser({ email }))
-            } catch (error) {
-                console.log(error)
-            }
-        }
-        setUsers()
-        const contextUser = () => {
-            const user2 = userRedux.find((e) => { return e.email == user.email })
-            dispatch(currentAuth(user2))
-
-        }
-        contextUser()
-    }, [isAuthenticated])
+        dispatch(getImages())
+        dispatch(getUsers())
+    }, [])
 
 
     return (<>
@@ -130,7 +82,7 @@ console.log(imagesRedux)
             </select>
             <select onChange={(e) => setColor(e.target.value)}>
                 <option value="all">Color</option>
-                <option value="redf">Red</option>
+                <option value="red">Red</option>
                 <option value="blue">Blue</option>
                 <option value="yellow">Yellow</option>
                 <option value="green">Green</option>
@@ -140,6 +92,7 @@ console.log(imagesRedux)
                 <option value="silver">Silver</option>
             </select>
         </div>
+ 
 
         <Galery imgs={imagesRedux} type={type} category={category} subCategory={subCategory} color={color} />
 
