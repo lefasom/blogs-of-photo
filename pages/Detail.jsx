@@ -17,12 +17,13 @@ function Detail() {
     const { id } = useParams()
     const detailImg = useSelector((state) => state.images.detailImg.img)
     const auth = useSelector((state) => state.auth.list.email)
-console.log(detailImg)
-    console.log(auth)
+    const array = detailImg?.favorite.split(',')
+
     const [inFavor, favor] = useFavorite()
     //////////////
     const dispatch = useDispatch()
     useFetch()
+
     useEffect(() => {
         dispatch(getImg(id))
     }, [inFavor])
@@ -63,7 +64,7 @@ console.log(detailImg)
                 <section className='container-detail_description'>
                     <h5>Identificación del Ilustración de stock:  <b>{detailImg?.id}</b> </h5>
                     <p>{detailImg?.description}</p>
-                    <h5>me gustas {detailImg?.like}</h5>
+                    <h5>me gustas {array?.length - 1}</h5>
                 </section>
             </div>
 

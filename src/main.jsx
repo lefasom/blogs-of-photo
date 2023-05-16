@@ -3,12 +3,14 @@ import ReactDOM from 'react-dom/client'
 import App from './App'
 import { Auth0Provider } from '@auth0/auth0-react'
 import { Provider } from 'react-redux'
-import  store from '../redux/store'
+import store from '../redux/store'
+const domain = 'dev-i1bwqgm8z4bqs5iw.us.auth0.com'
+const clientId = 'zfiFFyq6L2SmmeOKaDxbrWZTmW3YkMAI'
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <Auth0Provider
-      domain="dev-ppkifmn24h631mby.us.auth0.com"
-      clientId="HXr8R9YiWmPZxdBclxUggkm58te33Qir"
+      domain={domain}
+      clientId={clientId}
       authorizationParams={{
         redirect_uri: window.location.origin
       }}
