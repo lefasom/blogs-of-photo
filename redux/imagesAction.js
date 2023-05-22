@@ -45,10 +45,10 @@ export function addFavorite({ id, category, color, description, favorite, idUser
 
             if (!favorite?.includes(email)) {
               favorite += `,${email}`
-              console.log('add:', favorite)
+            //   console.log('add:', favorite)
             } else {
               favorite = favorite.replace(`,${email}`, '')
-              console.log('rest:', favorite)
+            //   console.log('rest:', favorite)
             }
           
            const res = setDoc(doc(db, 'crudImg', id), { category, color, description, favorite, idUser, like, photo, subCategory, type })

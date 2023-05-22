@@ -14,7 +14,7 @@ function Favorite() {
 
     const dispatch = useDispatch()
 
-    console.log(auth,favorites)
+    // console.log(auth,favorites)
     useFetch()
 
     useEffect(() => {
