@@ -26,7 +26,7 @@ function Detail() {
 
     useEffect(() => {
         dispatch(getImg(id))
-    }, [inFavor])
+    }, [inFavor,favor])
 
     return (
         <div className='container-detail'>
