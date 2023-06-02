@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { addImages, currentImages } from '../redux/imagesSlice'
+import {  currentImages } from '../redux/imagesSlice'
 import { db, uploadFile } from '../firebase/firebase'
 import { useAuth0, withAuthenticationRequired } from '@auth0/auth0-react'
 
 import '../styles/upload.css'
 import InfoFIle from '../components/InfoFIle'
 import { collection, getDocs } from '@firebase/firestore'
+import { addImages } from '../redux/imagesAction'
 
 function Upload() {
 

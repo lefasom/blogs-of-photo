@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import '../styles/galery.css'
-import Spiral from './Spiral'
-import { useSelector } from 'react-redux'
 
 function Galery({ imgs, category, subCategory, color, type }) {
 
@@ -39,7 +37,7 @@ function Galery({ imgs, category, subCategory, color, type }) {
   })
   return (<>
 
-{IMG_FILTER_CATEGORY.length==0&& <Spiral/>}
+{IMG_FILTER_CATEGORY.length==0&& <p>Sin Coincidencias</p>}
     <div className='container-galery'>
       {IMG_FILTER_CATEGORY.slice(inf, sup).map((val, index) => {
         if (val.type == 'video') {

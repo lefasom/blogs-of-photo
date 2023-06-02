@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import '../styles/detail.css'
-import { addFav, deleteFav } from '../redux/usersSlice'
-import { addFavorite, getImg } from '../redux/imagesAction'
+import { getImg } from '../redux/imagesAction'
 import useFetch from '../hooks/useFetch'
 import useFavorite from '../hooks/useFavorite'
+import { resetDetailImg } from '../redux/imagesSlice'
 //arreglar persistencia en la foto,...YES
 //  ...funciene la actualizacion de color ... LA IDEA ES COMPARAR LAS FOTOS CON MIS FAVORITOS Y INICIAR LA LISTA CON SUS ESTADOS YA SEA LIKE O DISLIKE
 //...en el corazon de favorite
@@ -27,6 +27,10 @@ function Detail() {
     useEffect(() => {
         dispatch(getImg(id))
     }, [inFavor,favor])
+    useEffect(() => {
+
+    dispatch(resetDetailImg())
+    },[])
 
     return (
         <div className='container-detail'>
@@ -62,7 +66,6 @@ function Detail() {
                 </section> */}
 
                 <section className='container-detail_description'>
-                    <h5>Identificación del Ilustración de stock:  <b>{detailImg?.id}</b> </h5>
                     <p>{detailImg?.description}</p>
                     <h5>me gustas {array?.length - 1}</h5>
                 </section>

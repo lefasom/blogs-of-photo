@@ -7,7 +7,6 @@ export const authSlice = createSlice({
         list: []
     },
     reducers: {
-
         currentAuth: (state, action) => {
             state.list = action.payload
         },

@@ -4,9 +4,10 @@ import { useAuth0, withAuthenticationRequired } from '@auth0/auth0-react'
 import { db } from '../firebase/firebase.js'
 import { collection, getDocs } from "firebase/firestore"
 import { useDispatch, useSelector } from 'react-redux'
-import { currentImages, deleteImages} from '../redux/imagesSlice.js'
+import { currentImages } from '../redux/imagesSlice.js'
 import '../styles/collection.css'
 import InfoFIle from '../components/InfoFIle.jsx'
+import { deleteImgs } from '../redux/imagesAction.js'
 const collectionName = "crudImg"
 
 function Collection() {
@@ -21,11 +22,11 @@ function Collection() {
   const img = images.filter((val) => { return (val.idUser == user?.email) })
 
   const onDeleteLink = (id) => {
-    dispatch(deleteImages(id))
+    dispatch(deleteImgs({ id }))
   }
 
   useEffect(() => {
-    const getImages= async () => {
+    const getImages = async () => {
       const querySnapshot = await getDocs(collection(db, collectionName));
       const docs = [];
       querySnapshot.forEach((doc) => {

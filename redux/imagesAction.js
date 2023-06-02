@@ -1,9 +1,7 @@
-import { collection, doc, getDoc, getDocs, setDoc } from "@firebase/firestore";
-import { currentFavStr, currentFavorites, currentImages, detailImg } from "./imagesSlice";
+import { addDoc, collection, deleteDoc, doc, getDoc, getDocs, setDoc } from "@firebase/firestore";
+import { currentImages, deleteImages, detailImg } from "./imagesSlice";
 import { db } from "../firebase/firebase";
-import { useSelector } from "react-redux";
-
-
+import { v4 } from "uuid";
 
 export function getImages() {
     return async (dispatch) => {
@@ -19,7 +17,6 @@ export function getImages() {
         }
     }
 }
-
 export function getImg(id) {
     // console.log(id)
     return async (dispatch) => {
@@ -34,9 +31,6 @@ export function getImg(id) {
         }
     }
 }
-
-
-
 export function addFavorite({ id, category, color, description, favorite, idUser, like, photo, subCategory, type, email }) {
 
     return async (dispatch) => {
@@ -44,15 +38,39 @@ export function addFavorite({ id, category, color, description, favorite, idUser
             console.log('original:', favorite)
 
             if (!favorite?.includes(email)) {
-              favorite += `,${email}`
-            //   console.log('add:', favorite)
+                favorite += `,${email}`
+                //   console.log('add:', favorite)
             } else {
-              favorite = favorite.replace(`,${email}`, '')
-            //   console.log('rest:', favorite)
+                favorite = favorite.replace(`,${email}`, '')
+                //   console.log('rest:', favorite)
             }
-          
-           const res = setDoc(doc(db, 'crudImg', id), { category, color, description, favorite, idUser, like, photo, subCategory, type })
+
+            const res = setDoc(doc(db, 'crudImg', id), { category, color, description, favorite, idUser, like, photo, subCategory, type })
             console.log(res)
+        } catch (error) {
+            console.log(error)
+        }
+    }
+}
+export function addImages({ type, color, subCategory, category, description, photo, idUser }) {
+
+    return async (dispatch) => {
+        try {
+            const like = 0
+            const favorite = ''
+            const id = v4()
+            addDoc(collection(db, 'crudImg'), { id, favorite, like, type, color, subCategory, category, description, photo, idUser })
+        } catch (error) {
+            console.log(error)
+        }
+    }
+}
+export function deleteImgs({ id }) {
+
+    return async (dispatch) => {
+        try {
+            deleteDoc(doc(db,  'crudImg', id))
+            dispatch(deleteImages(id))
         } catch (error) {
             console.log(error)
         }

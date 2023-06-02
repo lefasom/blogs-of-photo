@@ -2,6 +2,7 @@ import { collection, getDocs } from "@firebase/firestore";
 import { db } from "../firebase/firebase";
 import { currentUsers } from "./usersSlice";
 
+//no lo estoy utilizando pero traigo todos los usuarios
 
 
 export function getUsers(){
