@@ -45,14 +45,14 @@ flex-direction: column;
     justify-content: center;
 }
 
-.container-detail_controls span {
+.container-detail_controls ion-icon {
     border-radius: 100%;
     margin: 10px;
     font-size: 30px;
     cursor: pointer;
     padding: 10px;
 }
-.container-detail_controls-red span {
+.container-detail_controls-red ion-icon {
     border-radius: 100%;
     margin: 10px;
     font-size: 30px;

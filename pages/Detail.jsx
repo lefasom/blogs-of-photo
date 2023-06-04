@@ -39,11 +39,9 @@ function Detail() {
                     src={detailImg?.photo} alt=''
                 />
                 <div className={inFavor ? 'container-detail_controls-red' : 'container-detail_controls'}>
-                    {auth &&
-                        <span onClick={favor} className="material-symbols-outlined">
-                            favorite
-                        </span>
-                    }
+                    {auth &&<>
+                        <ion-icon onClick={favor} name="heart"></ion-icon>
+                    </>}
 
 
                 </div>

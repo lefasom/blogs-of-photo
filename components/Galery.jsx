@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import '../styles/galery.css'
+import Like from './Like.jsx'
 
 function Galery({ imgs, category, subCategory, color, type }) {
 
@@ -8,8 +9,8 @@ function Galery({ imgs, category, subCategory, color, type }) {
   const [inf, setInf] = useState(0)
   const [sup, setSup] = useState(20)
   const [pagina, setPagina] = useState(0)
-//   const fav = useSelector((state) => state.auth.list.favorite)
-// console.log(fav)
+  //   const fav = useSelector((state) => state.auth.list.favorite)
+  // console.log(fav)
 
   if (category == 'all' && color == 'all') {
     IMG_FILTER_CATEGORY = imgs
@@ -31,40 +32,46 @@ function Galery({ imgs, category, subCategory, color, type }) {
   if (type != 'all') {
     IMG_FILTER_CATEGORY = IMG_FILTER_CATEGORY.filter((e) => { return (e.type == type) })
 
-  } 
+  }
   useEffect(() => {
     setPagina(Math.floor((sup + 1) / 20))
   })
   return (<>
+    <div className='container-flex'>
 
-{IMG_FILTER_CATEGORY.length==0&& <p>Sin Coincidencias</p>}
-    <div className='container-galery'>
-      {IMG_FILTER_CATEGORY.slice(inf, sup).map((val, index) => {
-        if (val.type == 'video') {
-          return (
-            <div key={val.id} className='container-img'>
-              <Link to={`/Detail/${val.id}`}>
-                <video controls className={val.id % 2 ? 'img' : 'img2'} src={val.photo} alt="" />
-              </Link>
+      {IMG_FILTER_CATEGORY.length == 0 && <p>Sin Coincidencias</p>}
+      <div className='container-galery'>
+        {IMG_FILTER_CATEGORY.slice(inf, sup).map((val, index) => {
+          if (val.type == 'video') {
+            return (
+              <div key={val.id} className='container-img'>
+                <Link to={`/Detail/${val.id}`}>
+                  <video controls className={val.id % 2 ? 'img' : 'img2'} src={val.photo} alt="" />
+                </Link>
 
-            </div>
-          )
-        } else {   
-          
-        
-          return (
-            <div key={val.id} className='container-img'>
-              <Link to={`/Detail/${val.id}`}>
-                <img className={val.id % 2 ? 'img' : 'img2'} src={val.photo} alt="" />
-              </Link>
-            </div>
+              </div>
+            )
+          } else {
 
-          )
 
+            return (
+              <div key={val.id} className='container-img'>
+                <Link to={`/Detail/${val.id}`}>
+                  <img className={val.id % 2 ? 'img' : 'img2'} src={val.photo} alt="" />
+
+                </Link>
+                <div className='like' >
+                  <Like id={val.id} />
+                </div>
+              </div>
+
+            )
+
+          }
         }
-      }
 
-      )}
+        )}
+      </div>
 
     </div>
     <br />
