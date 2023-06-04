@@ -2,12 +2,12 @@
 .container-galery {
 position: absolute;
     columns: 4;
-
+    left: 10px;
+    right: 10px;
     margin-top: 150px;
-    padding-left: 60px;
-    column-gap: 55px;
+    column-gap: 2rem;
 z-index: -1;
-width: 100%;
+box-sizing: border-box;
 }
 
 .container-img {
@@ -18,9 +18,9 @@ width: 100%;
 
 }
 .like{
-    position: relative;
-    top:30px;
-    left: -90px;
+    position: absolute;
+    top: 33%;
+    right: 10px;
     z-index: 9998;
 }
 
@@ -54,12 +54,17 @@ width: 100%;
 @media (width<750px) {
     .container-galery {
         display: flex;
-        justify-content: center;
         flex-direction: column;
-    padding-left: 80px;
+        margin-top: 120px;
+        left: 10px;
+        right: 10px;
+        
+    }
+    .container-img {
+        position: relative;
+ 
 
     }
-
     .container-galery .container-img img {
         width: 90vw;
         object-fit: cover;

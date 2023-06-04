@@ -10,8 +10,8 @@
 }
 
 .container-detail_background {
-display: flex;
-flex-direction: column;
+    display: flex;
+    flex-direction: column;
     background: rgb(2, 0, 36);
     background: linear-gradient(90deg, rgba(146, 141, 234, 0.062) 37%, rgba(242, 238, 242, 0.04899777282850781) 100%);
 }
@@ -25,9 +25,10 @@ flex-direction: column;
     height: auto;
     outline: 1px solid rgb(253, 251, 251);
     outline-offset: -1rem;
-    box-shadow: 1px 1px 10px 1px #333;    
+    box-shadow: 1px 1px 10px 1px #333;
 }
-@media (width<750px){
+
+@media (width<750px) {
     .container-detail_background img {
         margin: auto;
         margin-top: 100px;
@@ -37,32 +38,47 @@ flex-direction: column;
 
         outline: 1px solid rgb(253, 251, 251);
         outline-offset: -1rem;
-        box-shadow: 1px 1px 10px 1px #333;    
+        box-shadow: 1px 1px 10px 1px #333;
     }
 }
-.container-detail_controls,.container-detail_controls-red {
+
+.container-detail_controls,
+.container-detail_controls-red {
     display: flex;
     justify-content: center;
 }
 
 .container-detail_controls ion-icon {
+    background-color: #ffffff34;
+    color: #413f42;
     border-radius: 100%;
     margin: 10px;
     font-size: 30px;
     cursor: pointer;
-    padding: 10px;
+    padding: 5px;
 }
+
 .container-detail_controls-red ion-icon {
+    background-color: #ffffff34;
+
     border-radius: 100%;
     margin: 10px;
     font-size: 30px;
     cursor: pointer;
-    padding: 10px;
-    color:red;
+    padding: 5px;
+    color: rgb(243, 38, 38);
 }
-.container-detail_controls span:hover {
-    background-color: #0200240d;
+
+.container-detail_controls-red ion-icon:hover {
+    background-color: #ffffff80;
+
 }
+
+.container-detail_controls ion-icon:hover {
+    background-color: #ffffff80;
+
+}
+
 
 .container-detail_description {
     background-color: #fff;
