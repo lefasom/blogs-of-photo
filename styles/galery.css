@@ -33,12 +33,7 @@ box-sizing: border-box;
     box-shadow: 1px 1px 17px 1px #333;
 }
 
-.container-galery .container-img .span-red  span {
-    color: red;
-}
-.container-galery .container-img .span-black  span {
-    color: rgb(7, 7, 7);
-}
+
 
 .container-galery .container-img video {
     width: 22vw;
@@ -148,4 +143,37 @@ box-sizing: border-box;
 
 .true {
     display: block;
+}
+.container-detail_controls ion-icon {
+    position: relative;
+    background-color: #ffffff34;
+    color: #413f42;
+    border-radius: 100%;
+    margin: 10px;
+    font-size: 30px;
+    cursor: pointer;
+    padding: 5px;
+}
+
+.container-detail_controls-red ion-icon {
+    position: relative;
+    
+    background-color: #ffffff34;
+
+    border-radius: 100%;
+    margin: 10px;
+    font-size: 30px;
+    cursor: pointer;
+    padding: 5px;
+    color: rgb(243, 38, 38);
+}
+
+.container-detail_controls-red ion-icon:hover {
+    background-color: #ffffff80;
+
+}
+
+.container-detail_controls ion-icon:hover {
+    background-color: #ffffff80;
+
 }

@@ -10,6 +10,8 @@
 }
 
 .container-detail_background {
+    position: absolute;
+    z-index: -1;
     display: flex;
     flex-direction: column;
     background: rgb(2, 0, 36);
@@ -48,7 +50,8 @@
     justify-content: center;
 }
 
-.container-detail_controls ion-icon {
+.container-detail_background .container-detail_controls ion-icon {
+    position: relative;
     background-color: #ffffff34;
     color: #413f42;
     border-radius: 100%;
@@ -58,7 +61,8 @@
     padding: 5px;
 }
 
-.container-detail_controls-red ion-icon {
+.container-detail_background .container-detail_controls-red ion-icon {
+
     background-color: #ffffff34;
 
     border-radius: 100%;
@@ -69,12 +73,12 @@
     color: rgb(243, 38, 38);
 }
 
-.container-detail_controls-red ion-icon:hover {
+.container-detail_background .container-detail_controls-red ion-icon:hover {
     background-color: #ffffff80;
 
 }
 
-.container-detail_controls ion-icon:hover {
+.container-detail_background .container-detail_controls ion-icon:hover {
     background-color: #ffffff80;
 
 }
